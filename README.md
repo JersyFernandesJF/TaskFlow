@@ -70,9 +70,9 @@ If you don't have django installed for python 3 then run:
 And then:
 
     $ python3 -m django startproject \
-      --template=https://github.com/nikola-k/django-template/zipball/master \
+      --template=https:[//github.com/nikola-k/django-template/zipball/master](https://github.com/JersyFernandesJF/TaskFlowAPI) \
       --extension=py,md \
-      <project_name>
+      TaskFlow
       
       
 After that just install the local dependencies, run migrations, and start the server.
