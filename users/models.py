@@ -7,12 +7,12 @@ class Users(models.Model):
   Name = models.CharField(max_length= 200, null=False)
   Email = models.EmailField(unique=True, null=False)
   Password = models.CharField(null=False, max_length= 300)
-  JobID = models.ForeignKey('Job', on_delete=models.CASCADE)
+  Job = models.ForeignKey('Job', on_delete=models.CASCADE)
 
 class Job(models.Model):
   JobID = models.IntegerField(primary_key=True)
   Name = models.CharField(unique = True, null=False, max_length= 200)
-  DepartmentID = models.ForeignKey('Department', on_delete=models.CASCADE)
+  Department = models.ForeignKey('Department', on_delete=models.CASCADE)
 
 class Department(models.Model):
   
