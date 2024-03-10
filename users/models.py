@@ -4,11 +4,11 @@ import bcrypt
 
 # Create your models here.
 class Users(models.Model):
-  UserID = models.UUIDField(default=uuid.uuid4, unique=True, editable = False, primary_key= True, null=False)
-  Name = models.CharField(max_length= 200, null=False)
-  Email = models.EmailField(unique=True, null=False, blank=False)
-  Password = models.CharField(null=False, max_length= 300, blank=False)
-  Job = models.ForeignKey('Job', on_delete=models.CASCADE, null=False)
+  userID = models.UUIDField(default=uuid.uuid4, unique=True, editable = False, primary_key= True, null=False)
+  name = models.CharField(max_length= 200, null=False)
+  email = models.EmailField(unique=True, null=False, blank=False)
+  password = models.CharField(null=False, max_length= 300, blank=False)
+  job = models.ForeignKey('Job', on_delete=models.CASCADE, null=False)
 
   def __str__(self):
     return self.Name
@@ -22,9 +22,11 @@ class Users(models.Model):
     return bcrypt.checkpw(input_password.encode('utf-8'), hashed_password)
 
 class Job(models.Model):
-  Name = models.CharField(unique = True, null=False, max_length= 200)
-  Department = models.ForeignKey('Department', on_delete=models.CASCADE, null=False)
+  id = models.AutoField(primary_key=True)
+  name = models.CharField(unique = True, null=False, max_length= 200)
+  nepartment = models.ForeignKey('Department', on_delete=models.CASCADE, null=False)
 
 class Department(models.Model):
-  Name = models.CharField(unique=True, null=False, max_length= 200)
+  id = models.AutoField(primary_key=True)
+  name = models.CharField(unique=True, null=False, max_length= 30, blank=True)
   
